@@ -40,8 +40,6 @@ provider "aws" {
 #    #profile = var.profile-nvmumbai # apsouth1
 #}
 
-
-
 #provider "aws" {
 #    alias = "useast2"   # 
 #    region = var.region-useast2   # us-east-2
