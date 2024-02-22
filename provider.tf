@@ -17,21 +17,3 @@ terraform {
 #        dynamodb = "aws-ai-servcie-table"
 #    }
 }
-provider "aws" {
-    version = "~> 5.37.0"
-    region = var.region 
-    profile = var.profile 
-}
-provider "aws" {
-    version = "=> 5.37.0"
-    alias = var.nvmumbai  
-    region = var.region-nvmumbai   #ap-south-1
-    profile = var.profile-nvmumbai # apsouth1
-}
-
-provider "aws" {
-    version = "=> 5.37.0"
-    alias = var.useast2   # 
-    region = var.region-useast2   # us-east-2
-    profile = var.profile-useast2 # useastprofile
-}
