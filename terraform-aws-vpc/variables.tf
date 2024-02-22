@@ -77,3 +77,75 @@ variable "jio-pvt-subnet-1-cidr_block" {
     type    = string
     description = "single public subnet"
 }
+
+
+######################################################################################
+#   Resource Naming Convention
+######################################################################################
+
+variable "vendor" {
+    type = string 
+    default = "arcgis"
+    description = "arcgis vendor "
+}
+
+variable "client" {
+    type = string 
+    default = "dbs"
+    description = "dbs"
+}
+
+variable "domain" {
+    type = string 
+    default = "dbs-bank"
+    description = "dbs bank "
+}
+
+variable "app-name" {
+    type = string 
+    default = "pgi-application"
+    description = "pgi- Payment Gateway Application"
+}
+
+variable "resource-type-igw" {
+    type = string
+    default = "dbs-igw"
+    description = "DBS - Bank Internew Gateway"
+}
+
+variable "resource-type-pub-subnet" {
+    type = string 
+    default = "jio-dev-pub-subnet-1"
+}
+
+variable "resource-type-pub-rt" {
+    type = string
+    default = "jio-dev-pub-rt"
+}
+
+
+
+variable "resource-type-pvt-subnet" {
+    type = string 
+    default = "jio-dev-pvt-subnet-1"
+}
+
+variable "resource-type-pvt-rt" {
+    type = string
+    default = "jio-dev-pvt-rt"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
