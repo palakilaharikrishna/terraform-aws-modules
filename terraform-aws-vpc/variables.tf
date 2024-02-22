@@ -1,3 +1,7 @@
+####################################################################
+#  Region  -- Primary Region - secondary Region -- Failover Regions
+####################################################################
+
 variable "region" {
     default = "us-east-1"
     type    = string
@@ -54,6 +58,9 @@ variable "profile-useast2" {
     description = "secondary region for india "
 }
 
+########################################################################################
+#  VPC  -- CIDR Block and Pub / Pvt Subnets 
+########################################################################################
 
 variable "cidr_block" {
     default = ["192.168.0.0/16"]
@@ -65,8 +72,7 @@ variable "jio-pub-subnet-1-cidr_block" {
     description = "single public subnet"
 }
 
-
-variable "cidr_block_pvt" {
+variable "jio-pvt-subnet-1-cidr_block" {
     default = ["192.168.2.0/24"]
     type    = string
     description = "single public subnet"
