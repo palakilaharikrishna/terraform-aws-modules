@@ -8,6 +8,25 @@
 # Provider -kubernetes latest version = "2.26.0"
 # Provider - helm- latest version = "1.1.1"
 
+provider "aws" {
+    version = "~> 5.37.0"
+    region = var.region 
+    profile = var.profile 
+}
+provider "aws" {
+    version = "=> 5.37.0"
+    alias = var.nvmumbai  
+    region = var.region-nvmumbai   #ap-south-1
+    profile = var.profile-nvmumbai # apsouth1
+}
+
+provider "aws" {
+    version = "=> 5.37.0"
+    alias = var.useast2   # 
+    region = var.region-useast2   # us-east-2
+    profile = var.profile-useast2 # useastprofile
+}
+
  
 resource "aws_vpc" "jio-dev-vpc" {
     cidr_block = "${var.cidr_block}"
