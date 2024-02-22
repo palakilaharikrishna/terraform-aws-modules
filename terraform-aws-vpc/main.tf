@@ -49,7 +49,7 @@ resource "aws_vpc" "jio-dev-vpc" {
     cidr_block = "${var.cidr_block}
     instance_tenancy = "defulat"
     tags = {
-        Name = "jio-dev-vpc"
+        Name = "${var.vendor}-${var.client}-${var.domain}-${app-name}-${var.resource-type-vpc}"
     }
 }
 
@@ -80,7 +80,7 @@ resource "aws_route_table_association" "jio-dev-rt-association" {
 
 resource "aws_subnet" "jio-dev-pvt-subnet-1" {
     vpc_id = aws_vpc.jio-dev-vpc.id
-    cidr_block = "${var.cidr_block_pvt}
+    cidr_block = "${var.jio-pvt-subnet-1-cidr_block}
 }
 
 resource "aws_eip" "jio-dev-eip" {
