@@ -55,13 +55,19 @@ resource "aws_vpc" "jio-dev-vpc" {
 
 
 resource "aws_internet_gateway" "jio-dev-igw" {
-    vpc_id = aws-vpc.jio-dev-vpc.id    
+    vpc_id = aws-vpc.jio-dev-vpc.id
+    tags = {
+        Name = "${var.vendor}-${var.client}-${var.domain}-${app-name}-${var.resource-type-igw}"
+    }    
 
 }
 resource "aws_subnet" "jio-dev-pub-subnet-1"{
     cidr_block = "${var.jio-pub-subnet-1-cidr_block}"
     map_public_ip_on_launch = true 
     vpc_id = aws-vpc.jio-dev-vpc.id
+    tags = {
+        Name = "${var.vendor}-${var.client}-${var.domain}-${app-name}-${var.resource-type-pub-subnet}"
+    }
 }
 
 resource "aws_route_table" "jio-dev-pub-rt" {
@@ -69,6 +75,9 @@ resource "aws_route_table" "jio-dev-pub-rt" {
     rourte {
         cidr_block = ["0.0.0.0/0"]
         gateway_id = aws.aws_internet_gateway.jio-dev-igw.id
+    }
+    tags = {
+        Name = "${var.vendor}-${var.client}-${var.domain}-${app-name}-${var.resource-type-pub-rt}"
     }
 }
 resource "aws_route_table_association" "jio-dev-rt-association" {
@@ -81,6 +90,9 @@ resource "aws_route_table_association" "jio-dev-rt-association" {
 resource "aws_subnet" "jio-dev-pvt-subnet-1" {
     vpc_id = aws_vpc.jio-dev-vpc.id
     cidr_block = "${var.jio-pvt-subnet-1-cidr_block}
+    tags = {
+        Name = "${var.vendor}-${var.client}-${var.domain}-${app-name}-${var.resource-type-pvt-subnet}"
+    }
 }
 
 resource "aws_eip" "jio-dev-eip" {
@@ -95,6 +107,9 @@ resource "aws_route_table" "jio-dev-pvt-rt-1" {
     rourte {
         cidr_block = ["0.0.0.0/0"]
         nat_gatewate_id= aws_nat_gateway.jio-dev-natgateway.id 
+    }
+    tags = {
+        Name = "${var.vendor}-${var.client}-${var.domain}-${app-name}-${var.resource-type-pvt-rt}"
     }
 }
 resource "aws_route_table_association" "jio-dev-pvt-rt-association" {
