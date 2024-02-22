@@ -46,7 +46,7 @@ provider "aws" {
 }
 
 resource "aws_vpc" "jio-dev-vpc" {
-    cidr_block = "${var.cidr_block}
+    cidr_block = "${var.cidr_block}"
     instance_tenancy = "defulat"
     tags = {
         Name = "${var.vendor}-${var.client}-${var.domain}-${app-name}-${var.resource-type-vpc}"
