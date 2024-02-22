@@ -53,7 +53,7 @@ resource "aws_route_table_association" "jio-dev-rt-association" {
 
 resource "aws_subnet" "jio-dev-pvt-subnet-1" {
     vpc_id = aws_vpc.jio-dev-vpc.id
-    cidr_block = "${var.jio-pvt-subnet-1-cidr_block}
+    cidr_block = "${var.jio-pvt-subnet-1-cidr_block}"
     tags = {
         Name = "${var.vendor}-${var.client}-${var.domain}-${var.env}-${app-name}-${var.resource-type-pvt-subnet}"
     }
